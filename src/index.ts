@@ -1,0 +1,59 @@
+import sade from 'sade'
+import pinfo from '../package.json'
+import { newProject } from './actions/new'
+
+const prog = sade(pinfo.name);
+
+prog
+  .version(pinfo.version)
+  .option('--global, -g', 'An example global flag')
+  .option('-c, --config', 'Provide path to custom config', 'han.config.js')
+
+prog
+  .command('new [type] [name]')
+  .describe('Build the source directory. Expects an `index.js` entry file.')
+  .option('-o, --output', 'Change the name of the output file', 'bundle.js')
+  .example('build src build --global --config my-conf.js')
+  .example('build app public -o main.js')
+  .action((type, name, opts) => {
+    console.log('> these are extra opts', opts);
+    newProject({ type, name })
+  });
+
+prog
+  .command('build <src> <dest>')
+  .describe('Build the source directory. Expects an `index.js` entry file.')
+  .option('-o, --output', 'Change the name of the output file', 'bundle.js')
+  .example('build src build --global --config my-conf.js')
+  .example('build app public -o main.js')
+  .action((src, dest, opts) => {
+    console.log(`> building from ${src} to ${dest}`);
+    console.log('> these are extra opts', opts);
+  });
+
+prog
+  .command('remote')
+  .describe('Manage set of tracked repositories')
+  .action(opts => {
+    console.log('~> Print current remotes...');
+  });
+ 
+// remote 子命令
+prog
+  .command('remote add <name> <url>', 'Demo...')
+  .action((name, url, opts) => {
+    console.log(`~> Adding a new remote (${name}) to ${url}`);
+  });
+ 
+prog
+  .command('remote rename <old> <new>', 'Demo...')
+  .action((old, nxt, opts) => {
+    console.log(`~> Renaming from ${old} to ${nxt}~!`);
+  });
+
+function start () {
+	return prog.parse(process.argv);
+}
+
+export { start }
+

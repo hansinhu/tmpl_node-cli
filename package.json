@@ -1,0 +1,41 @@
+{
+  "name": "han",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "bin": {
+    "han": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "lint:ts": "eslint ./src --fix --ext .ts,.tsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hansinhu <hansincn@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/parser": "^7.16.4",
+    "chalk": "^2.4.2",
+    "prompts": "^2.4.2",
+    "request": "^2.88.0",
+    "rimraf": "^3.0.0",
+    "sade": "^1.7.4",
+    "unzipper": "^0.10.11",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "@hansin/lint-config": "^0.0.1",
+    "@types/node": "^12.20.37",
+    "@types/prompts": "^2.0.14",
+    "@types/request": "^2.48.7",
+    "@types/rimraf": "^3.0.2",
+    "@types/sade": "^1.7.3",
+    "@types/unzipper": "^0.10.4",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "typescript": "^4.5.2"
+  }
+}
