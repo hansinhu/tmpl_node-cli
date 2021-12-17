@@ -426,6 +426,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/validate-npm-package-name@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@types/validate-npm-package-name/download/@types/validate-npm-package-name-3.0.3.tgz#970c1949b0b677e970aa6e60db4e0f6aaf5fb293"
+  integrity sha1-lwwZSbC2d+lwqm5g204Paq9fspM=
+
 "@types/vfile-message@*":
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/@types/vfile-message/download/@types/vfile-message-2.0.0.tgz"
