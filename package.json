@@ -4,14 +4,16 @@
   "description": "",
   "main": "./dist/index.js",
   "bin": {
-    "tmlp_node-cli": "./dist/index.js"
+    "tmlp_node-cli": "./bin/index.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsdx build",
-    "build:test": "tsc --project tsconfig.json",
+    "build-by-babel": "babel src --out-dir es --extensions .ts,.js",
+    "dev": "yarn build && cross-env NODE_ENV=development node bin/index.js",
+    "watch": "babel src --out-dir es --extensions .ts,.js --watch",
     "lint:ts": "eslint ./src --fix --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +25,11 @@
     ]
   },
   "dependencies": {
-    "@babel/parser": "^7.16.4",
+    "@babel/generator": "^7.17.12",
+    "@babel/parser": "^7.17.12",
+    "@babel/runtime": "^7.17.9",
+    "@babel/traverse": "^7.17.12",
+    "@babel/types": "^7.17.12",
     "chalk": "^2.4.2",
     "prompts": "^2.4.2",
     "request": "^2.88.0",
