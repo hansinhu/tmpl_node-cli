@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import sade from 'sade'
-import pinfo from './package.json'
-import { newProject } from './src/actions/new'
+import pinfo from '../package.json'
+import { newProject } from './actions/new'
 
 const prog = sade(pinfo.name);
 
